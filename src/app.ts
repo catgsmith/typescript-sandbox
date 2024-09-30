@@ -1,30 +1,29 @@
-const pizzas = [{ name: "Pepperoni", toppings: ["pepperoni"] }];
-// map return name in uppercaase
-const mappedPizzas = pizzas.map(
-  (pizza, i) => `${i}. ${pizza.name.toUpperCase()}`
-);
+interface Pizza {
+  name: string;
+  price: number;
+  getName(): string;
+}
 
-console.log(mappedPizzas); // ['PEPPERONI']
+interface Order {
+  pizza: Pizza;
+  toppings: string[];
+}
 
-/* const pizza = {
-  name: "Blazing Inferno",
-  getName: function () {
-    setTimeout(() => {
-      console.log(this.name);
-    }, 100);
+const pizza = {
+  name: 'Pepperoni',
+  price: 15,
+  getName() {
+    return this.name;
   },
-}; */
-/* const pizza = {
-  name: "Blazing Inferno",
-  getName: () => pizza.name,
 };
 
-console.log(pizza.getName()); */
+console.log(pizza.getName());
+
+const toppings = ['pepperoni'];
 
 
-function multiply(a: number, b = 25) {
-  return a * b;
-} //
+function createOrder(pizza: Pizza, toppings: string[]): Order {
+  return { pizza, toppings };
+}
 
-console.log(multiply(5));
-console.log(multiply(5, 35));
+console.log(createOrder(pizza, toppings));
