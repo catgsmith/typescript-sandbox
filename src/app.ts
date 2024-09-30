@@ -14,9 +14,17 @@ console.log(mappedPizzas); // ['PEPPERONI']
     }, 100);
   },
 }; */
-const pizza = {
+/* const pizza = {
   name: "Blazing Inferno",
   getName: () => pizza.name,
 };
 
-console.log(pizza.getName());
+console.log(pizza.getName()); */
+
+
+function multiply(a: number, b = 25) {
+  return a * b;
+} //
+
+console.log(multiply(5));
+console.log(multiply(5, 35));
